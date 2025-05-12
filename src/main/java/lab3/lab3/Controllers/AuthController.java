@@ -40,9 +40,7 @@ public class AuthController {
 
     String state = UUID.randomUUID().toString();
     String redirectUri = casdoorProperties.getRedirectUri();
-    if (!redirectUri.startsWith("https")) {
-        redirectUri = redirectUri.replace("http", "https");
-    }
+
     
     String authorizeUrl = String.format("%s%s?client_id=%s&response_type=code&redirect_uri=%s&scope=openid profile email&state=%s&nonce=%s",
             casdoorProperties.getConnectEndpoint(),
